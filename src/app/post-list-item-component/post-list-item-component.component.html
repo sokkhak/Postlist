@@ -1,0 +1,23 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': loveIts > 0,
+                'list-group-item-danger': loveIts < 0}" class="mb-2">
+  <header class="row">
+    <h3 class="col">{{ postTitle }}</h3>
+    <span class="col ml-auto text-right">{{ createdDate | date: 'M/d/yyyy, h:mm a' }}</span>
+  </header>
+  <article>
+    <p>
+      {{ content }}
+    </p>
+  </article>
+  <div class="row d-flex justify-content-between align-items-center">
+    <div class="col">
+      <button class="btn btn-success mr-2" (click)="onIncrementLove()">Love it</button>
+      <button class="btn btn-danger" (click)="onDecrementLove()">Don't love it</button>
+    </div>
+    <div class="col text-right note">
+      <span>{{ loveIts }}</span>
+      <i class="fas fa-heart" [ngStyle]="{color: getColor()}"></i>
+    </div>
+  </div>
+</li>
